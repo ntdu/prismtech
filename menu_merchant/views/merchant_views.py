@@ -32,8 +32,8 @@ class MerchantViewSet(viewsets.ModelViewSet):
 
 
     def create(self, request, *args, **kwargs):
-        # if Merchant.objects.filter(owner=request.user).exists():
-        #     return ApiHelper.custom_response(450, "User already have a merchant")
+        if Merchant.objects.filter(owner=request.user).exists():
+            return ApiHelper.custom_response(450, "User already have a merchant")
 
         in_data = request.data
         in_data['owner'] = request.user.id
