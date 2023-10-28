@@ -102,7 +102,7 @@ DBTYPE="postgresql"
 2. Using curl or other tools, you can send requests to the endpoints through methods defined here:
 ``` http://127.0.0.1:8000/```
 
-3. Postman collections to testing can be found at [here](https://app.getpostman.com/join-team?invite_code=ee0ad27acfefb4ff31f2d3a2a6012046&ws=7412560f-f86f-437c-8cf7-5aab27b4d70e)
+3. Postman collections for testing can be found at [here](https://app.getpostman.com/join-team?invite_code=ee0ad27acfefb4ff31f2d3a2a6012046&ws=7412560f-f86f-437c-8cf7-5aab27b4d70e)
 
 ## <a id="running-on-docker"> Running On Docker</a>
 ### <a id="docker-prerequisites"> Prerequisites</a>
