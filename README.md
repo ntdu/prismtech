@@ -1,7 +1,7 @@
-# ️⚡️ MS-SNOWDASHBOARD ⚡️
+# ️⚡️ Menu merchant ⚡️
 
 ## Project Description
-Ms-snowdashboard is a data API written in python3.
+Menu merchant is a data API written in python3.
 
 ## Table of Content
 * [Project Description](#project-description)
@@ -52,7 +52,7 @@ pip install -r requirments.txt
 
 4. Environment variables setup
 
-   - Use the sample env file to create your .env file and save it at the root of the cartavolta directory. 
+   - Use the sample env file to create your .env file and save it at the root of the prismtech directory. 
 
    - You may use EXPORT to set up env variables manually through the command shell.
    
@@ -72,32 +72,37 @@ pip install -r requirments.txt
 # .env file USER_DB_USER and USER_DB_PASSWORD.
 
 psql postgres
-CREATE DATABASE cartavolta;
+CREATE DATABASE uspos;
 CREATE USER youruser WITH ENCRYPTED PASSWORD 'yourpass';
-GRANT ALL PRIVILEGES ON DATABASE cartavolta TO youruser;
+GRANT ALL PRIVILEGES ON DATABASE uspos TO youruser;
 ```
 
 6. Local Deployment
-   - Navigate to /volta directory and run the application using Uvicorn using the below command.
+   - In the prismtech directory and run the application using the below command.
 
 ```bash
-uvicorn main:app --reload --port 8000 
+python manage.py runserver
 ```
-this will have the API running on your desired portm more options can be found at 
+this will have the API running on the port 8000
 ### <a id="docker-setup"> Setup ENV</a>
 Update database configuration in:
 ```bash
-POSTGRES_HOST=snowdashboard-db
+POSTGRES_HOST=prismtech-db
 POSTGRES_PORT=5432
-POSTGRES_USER=snowdashboard
-POSTGRES_PASS=snowdashboard
-POSTGRES_DB=snowdashboard
+POSTGRES_USER=prismtech
+POSTGRES_PASS=prismtech
+POSTGRES_DB=uspos
 DBTYPE="postgresql"
 ```
 ## Usage
+1. Migrations: Running two below command
+`python manage.py makemigrations`
+`python manage.py migrate`
 
-Using curl or other tools, you can send requests to the endpoints through methods defined here:
-``` http://127.0.0.1:8000/docs```
+2. Using curl or other tools, you can send requests to the endpoints through methods defined here:
+``` http://127.0.0.1:8000/```
+
+3. Postman collections to testing can be found at [here](https://app.getpostman.com/join-team?invite_code=ee0ad27acfefb4ff31f2d3a2a6012046&ws=7412560f-f86f-437c-8cf7-5aab27b4d70e)
 
 ## <a id="running-on-docker"> Running On Docker</a>
 ### <a id="docker-prerequisites"> Prerequisites</a>
@@ -112,13 +117,3 @@ tbd
 
 ## <a id="continuous-deployment"> Continuous Deployment</a>
 tbd
-
-## License
-[voltacharging](https://voltacharging.com/)
-
-## Maintainers
-| Pillar  | Squad | Name     | Slack         | GitHub              |
-|---------|-------|----------|---------------|---------------------|
-| ADI | DE    |Silas Toms| @silas        | @geolibrerian|
-| ADI | DE    |Hessam Karimian Rad| @Hessam.k.Rad | @radioxen|
-| ADI | DE    |Shady Smaoui| @Shady        | @shsma|
