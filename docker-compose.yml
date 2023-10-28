@@ -8,14 +8,13 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: uspos
     ports:
-      - "5433:5432"
+      - "5432:5432"
 
   api:
     build: .
-    command: uvicorn main:app --host 0.0.0.0
-
-    volumes:
-      - .:/app
+    command: [ "make", "start-api" ]
+    # volumes:
+    #   - .:/app
 
     ports:
       - "8001:8000"
@@ -23,11 +22,16 @@ services:
     depends_on:
       - db
 
+    # env_file:
+    #   - ./.env
+
     environment:
       DB_USER: postgres
       DB_PASSWORD: postgres
-      DB: uspos
+      DB_NAME: uspos
+      DB_HOST: db
+      DB_PORT: 5432
 
-volumes:
-  db:
-    driver: local
+# volumes:
+#   db:
+#     driver: local
